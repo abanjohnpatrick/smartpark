@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "SmartPark API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for testing SmartPark REST APIs"
+  },
+  "item": [
+    {
+      "name": "Register Parking Lot",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lotId\": \"LOT-C1\",\n  \"location\": \"Race Track\",\n  \"capacity\": 100\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/lots",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "lots"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Register Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"licensePlate\": \"MAX-333\",\n  \"type\": \"CAR\",\n  \"ownerName\": \"Max Verstappen\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/vehicles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "vehicles"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check-in Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lotId\": \"LOT-C1\",\n  \"licensePlate\": \"MAX-333\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/parking/checkin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "parking",
+            "checkin"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check-out Vehicle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lotId\": \"LOT-C1\",\n  \"licensePlate\": \"MAX-333\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/parking/checkout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "parking",
+            "checkout"
+          ]
+        }
+      }
+    },
+    {
+      "name": "View Occupancy of Lot",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/lots/LOT-C1/occupancy",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "lots",
+            "LOT-C1",
+            "occupancy"
+          ]
+        }
+      }
+    },
+    {
+      "name": "View Vehicles in Lot",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/parking/lots/LOT-C1/vehicles",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "lots",
+            "LOT-C1",
+            "vehicles"
+          ]
+        }
+      }
+    }
+  ]
+}
