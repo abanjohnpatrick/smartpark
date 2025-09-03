@@ -18,7 +18,7 @@ public class DataLoader implements CommandLineRunner {
         this.vehicleRepo = vehicleRepo;
 
     }
-
+    //initial db values
     public void run(String... args) throws Exception{
         if (lotRepo.count() ==0){
             lotRepo.save(new ParkingLot("LOT-A1","Office", 5));
