@@ -3,6 +3,7 @@ package com.smartpark.service;
 import com.smartpark.entity.ParkingLot;
 import com.smartpark.entity.ParkingSession;
 import com.smartpark.entity.Vehicle;
+import com.smartpark.exception.ApiException;
 import com.smartpark.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,16 @@ public class ParkingService {
     @Transactional
     public Vehicle registerVehicle(Vehicle v) {
         return vehicleRepo.save(v);
+    }
+
+    public ParkingLot getLot(String lotId) {
+        return lotRepo.findById(lotId)
+                .orElseThrow(() -> new ApiException("Parking lot not found: " + lotId));
+    }
+
+    public Vehicle getVehicle(String licensePlate) {
+        return vehicleRepo.findById(licensePlate)
+                .orElseThrow(() -> new ApiException("Vehicle not found: " + licensePlate));
     }
 
     @Transactional
